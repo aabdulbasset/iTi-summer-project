@@ -1,0 +1,23 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img
+      src="https://primefaces.org/cdn/primeng/images/primeng.svg"
+      height="40"
+      class="mr-2 ml-3"
+    />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <div class="flex align-items-center">
+      <p class="mr-2">Cart</p>
+      <i
+        class="pi pi-shopping-cart p-text-secondary"
+        pBadge
+        style="font-size: 1.5rem"
+        value="2"
+      ></i>
+      <p-divider styleClass="nav-divider" layout="vertical"></p-divider>
+      <p class="mr-2">Login</p>
+      <p-avatar icon="pi pi-user" styleClass="mr-2" size="normal"></p-avatar>
+    </div>
+  </ng-template>
+</p-menubar>

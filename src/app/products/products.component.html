@@ -1,0 +1,30 @@
+<h1 style="font-size: 3rem; text-align: center" class="mt-5 mb-5">
+  Selected Products
+</h1>
+<div class="flex gap-2 flex-wrap align-items-center justify-content-center">
+  <p-card
+    *ngFor="let product of products"
+    header="{{ product.name }}"
+    [style]="{ width: '360px' }"
+  >
+    <ng-template pTemplate="header">
+      <a href="/{{ product.id }}">
+        <img
+          alt="Card"
+          src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        />
+      </a>
+    </ng-template>
+    <p>{{ product.description }}</p>
+    <ng-template pTemplate="footer">
+      <div class="flex align-items-center gap-3">
+        <p-button
+          label="Add to cart"
+          icon="pi pi-shopping-cart"
+          styleClass="p-button-success"
+        ></p-button>
+        <h1>{{ product.price | price }}</h1>
+      </div>
+    </ng-template>
+  </p-card>
+</div>
