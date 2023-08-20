@@ -7,16 +7,20 @@
   </ng-template>
   <ng-template pTemplate="end">
     <div class="flex align-items-center">
-      <p class="mr-2">Cart</p>
-      <i
-        class="pi pi-shopping-cart p-text-secondary"
-        pBadge
-        style="font-size: 1.5rem"
-        value="2"
-      ></i>
+      <p-button
+        label="Cart"
+        class="p-button-text"
+        styleClass=" p-button-text"
+        icon="pi pi-shopping-cart"
+      ></p-button>
       <p-divider styleClass="nav-divider" layout="vertical"></p-divider>
-      <p class="mr-2">Login</p>
-      <p-avatar icon="pi pi-user" styleClass="mr-2" size="normal"></p-avatar>
+      <p-button
+        label="{{ authState ? 'Logout' : 'Login' }}"
+        class="p-button-text"
+        styleClass=" p-button-secondary"
+        icon="{{ authState ? 'pi pi-sign-out' : 'pi pi-sign-in' }}"
+        (onClick)="authState ? logout() : login()"
+      ></p-button>
     </div>
   </ng-template>
 </p-menubar>
