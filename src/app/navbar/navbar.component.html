@@ -24,3 +24,22 @@
     </div>
   </ng-template>
 </p-menubar>
+<p-dialog
+  [(visible)]="visible"
+  [draggable]="false"
+  [resizable]="false"
+  [modal]="true"
+  [style]="{ width: '25vw' }"
+>
+  <ng-template pTemplate="header">
+    <h1 class="text-xl font-bold text-center w-full">Ahlan</h1>
+  </ng-template>
+  <app-register
+    *ngIf="state == 'register'"
+    (changeStateEvent)="toggleState('login')"
+  ></app-register>
+  <app-login
+    *ngIf="state == 'login'"
+    (changeStateEvent)="toggleState('register')"
+  ></app-login>
+</p-dialog>
