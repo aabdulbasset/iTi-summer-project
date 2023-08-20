@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from "@angular/forms";
 import { AuthService } from "../auth.service";
 
 @Component({
@@ -10,14 +10,31 @@ import { AuthService } from "../auth.service";
 export class LoginComponent {
   @Output() changeStateEvent = new EventEmitter<string>();
   @Output() visibleEvent = new EventEmitter<boolean>();
-  email = new FormControl('')
-  password = new FormControl('')
-  hasError = false
-  constructor(private auth: AuthService){
-
-  }
-  login(){
-    this.auth.login(this.email.value!,this.password.value!).subscribe(data=>this.visibleEvent.emit(false),err=>(this.hasError=true))
-    
+  loginForm = new FormGroup({
+    email: new FormControl(""),
+    password: new FormControl(""),
+  });
+  hasError = false;
+  isLoading = false;
+  constructor(private auth: AuthService) {}
+  login() {
+    if (!this.loginForm.valid) {
+      this.hasError = true;
+      return;
+    }
+    this.isLoading = true;
+    this.hasError = false;
+    this.auth
+      .login(this.loginForm.value.email!, this.loginForm.value.password!)
+      .subscribe({
+        next: (res) => {
+          this.visibleEvent.emit(false);
+          this.isLoading = false;
+        },
+        error: (err) => {
+          this.hasError = true;
+          this.isLoading = false;
+        },
+      });
   }
 }
