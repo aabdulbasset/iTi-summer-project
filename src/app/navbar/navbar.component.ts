@@ -10,7 +10,7 @@ import { AuthService } from "../auth.service";
 export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService) {}
   authState: Boolean | any = null;
-  visible: boolean = true;
+  visible: boolean = false;
   state: string = "login";
   items: MenuItem[] = [
     {
@@ -33,5 +33,9 @@ export class NavbarComponent implements OnInit {
   }
   toggleState(state: string) {
     this.state = state;
+  }
+  toggleVisible(visible: boolean){
+    this.visible = visible
+    this.authState = !!this.authService.user
   }
 }

@@ -41,5 +41,6 @@
   <app-login
     *ngIf="state == 'login'"
     (changeStateEvent)="toggleState('register')"
+    (visibleEvent)="toggleVisible(false)"
   ></app-login>
 </p-dialog>
