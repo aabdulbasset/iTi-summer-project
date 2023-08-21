@@ -20,6 +20,7 @@ export class LoginComponent {
   login() {
     if (!this.loginForm.valid) {
       this.hasError = true;
+
       return;
     }
     this.isLoading = true;

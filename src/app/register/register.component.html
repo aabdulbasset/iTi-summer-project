@@ -63,13 +63,13 @@
     <h4 class="mb-2 text-red-500 text-center" *ngIf="hasError">
       Please fill in all the information
     </h4>
-    <button
-      pButton
-      pRipple
-      label="{{ isLoading ? 'Loading...' : 'Register' }}"
-      [disabled]="isLoading"
+    <p-button
+      [loading]="isLoading"
+      label="Register"
       icon="pi pi-user"
       class="w-full"
-    ></button>
+      type="submit"
+      styleClass="w-full"
+    ></p-button>
   </form>
 </div>

@@ -7,11 +7,13 @@
   </ng-template>
   <ng-template pTemplate="end">
     <div class="flex align-items-center">
-      <p-button
-        label="Cart"
-        styleClass=" p-button-outlined"
-        icon="pi pi-shopping-cart"
-      ></p-button>
+      <a routerLink="cart">
+        <p-button
+          label="Cart"
+          styleClass=" p-button-outlined"
+          icon="pi pi-shopping-cart"
+        ></p-button>
+      </a>
       <p-divider styleClass="nav-divider" layout="vertical"></p-divider>
       <p-button
         label="{{ authState ? 'Logout' : 'Login' }}"

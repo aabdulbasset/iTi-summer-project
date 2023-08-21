@@ -1,0 +1,35 @@
+<p-card>
+  <div class="flex gap-4 w-full" id="product-container">
+    <div id="product-image-section">
+      <img
+        id="product-image"
+        width="117"
+        height="157"
+        src="{{ product.image }}"
+      />
+    </div>
+    <div
+      id="product-details"
+      class="flex-grow-1 flex flex-column justify-content-between"
+    >
+      <div class="flex justify-content-between">
+        <h2>{{ product.name }}</h2>
+        <h2>{{ product.price | price }}</h2>
+      </div>
+      <p>{{ product.description }}</p>
+      <div>
+        <p-dropdown
+          [options]="quantitiyOptions"
+          [(ngModel)]="selectedQty"
+          optionLabel="name"
+          (onChange)="changeQTY()"
+        ></p-dropdown>
+        <p-button
+          icon="pi pi-trash"
+          styleClass="ml-2 p-button-danger"
+          (onClick)="removeFromCart()"
+        ></p-button>
+      </div>
+    </div>
+  </div>
+</p-card>

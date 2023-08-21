@@ -1,0 +1,76 @@
+<div class="w-9 mx-auto mt-5">
+  <h1 class="mb-4">Your Cart</h1>
+  <div class="flex gap-4">
+    <div id="cart-items" class="flex-grow-1 flex gap-3 flex-column">
+      <app-cart-item
+        (updateCartEvent)="updateCart()"
+        *ngFor="let product of items"
+        [product]="product"
+      ></app-cart-item>
+    </div>
+    <div id="cart-details" class="flex gap-3 flex-column">
+      <p-card header="One-Click checkout">
+        <div class="flex flex-column gap-3">
+          <div>
+            <label for="checkout-email">Enter your email address</label>
+            <input
+              pInputText
+              type="email"
+              id="checkout-email"
+              class="w-full mt-2"
+              placeholder="Email address"
+            />
+          </div>
+          <div>
+            <label for="checkout-email">Enter your phone number</label>
+            <input
+              pInputText
+              type="phone"
+              id="checkout-phone"
+              class="w-full mt-2"
+              placeholder="Phone number"
+            />
+          </div>
+          <div>
+            <label for="checkout-email">Enter your address</label>
+            <input
+              pInputText
+              type="address"
+              id="checkout-address"
+              class="w-full mt-2"
+              placeholder="Address"
+            />
+          </div>
+        </div>
+      </p-card>
+
+      <p-card>
+        <div class="flex justify-content-between">
+          <h2 class="mb-2">Total</h2>
+          <h2 class="mb-2">{{ total | price }}</h2>
+        </div>
+        <p-button
+          label="Checkout"
+          styleClass="w-full"
+          (onClick)="notimplemented()"
+        ></p-button>
+      </p-card>
+      <div>
+        <h5
+          *ngIf="!hasCoupon"
+          class="text-cyan-700 hover:text-cyan-900"
+          (click)="hasCoupon = !hasCoupon"
+        >
+          Do you have a coupon ?
+        </h5>
+        <input
+          *ngIf="hasCoupon"
+          pInputText
+          id="coupon-code"
+          class="w-full mt-2"
+          placeholder="Coupon code"
+        />
+      </div>
+    </div>
+  </div>
+</div>

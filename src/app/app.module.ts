@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule,ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from  '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -15,13 +15,17 @@ import { ProductsComponent } from "./products/products.component";
 import { FooterComponent } from "./footer/footer.component";
 import { CardModule } from "primeng/card";
 import { ButtonModule } from "primeng/button";
+import { DropdownModule } from "primeng/dropdown";
+
 import { PricePipe } from "./price.pipe";
 import { ProductdetailsComponent } from "./productdetails/productdetails.component";
 import { InputNumberModule } from "primeng/inputnumber";
 import { DialogModule } from "primeng/dialog";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from "./register/register.component";
+import { LoginComponent } from "./login/login.component";
+import { CartComponent } from "./cart/cart.component";
+import { CartItemComponent } from "./cart-item/cart-item.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,8 @@ import { LoginComponent } from './login/login.component';
     ProductdetailsComponent,
     RegisterComponent,
     LoginComponent,
+    CartComponent,
+    CartItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,8 @@ import { LoginComponent } from './login/login.component';
     DialogModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DropdownModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
