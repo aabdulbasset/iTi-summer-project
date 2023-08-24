@@ -1,5 +1,5 @@
 <p-card>
-  <div class="flex gap-4 w-full" id="product-container">
+  <div class="flex gap-4 w-full flex-column md:flex-row" id="product-container">
     <div id="product-image-section">
       <img
         id="product-image"
@@ -12,8 +12,8 @@
       id="product-details"
       class="flex-grow-1 flex flex-column justify-content-between"
     >
-      <div class="flex justify-content-between">
-        <h2>{{ product.name }}</h2>
+      <div class="flex justify-content-between flex-column md:flex-row">
+        <h2>{{ product.title }}</h2>
         <h2>{{ product.price | price }}</h2>
       </div>
       <p>{{ product.description }}</p>
@@ -27,7 +27,7 @@
         <p-button
           icon="pi pi-trash"
           styleClass="ml-2 p-button-danger"
-          (onClick)="removeFromCart()"
+          (onClick)="deleteItem()"
         ></p-button>
       </div>
     </div>

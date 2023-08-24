@@ -1,14 +1,21 @@
-<div class="w-9 mx-auto mt-5">
+<div class="md:w-9 mx-auto mt-5">
   <h1 class="mb-4">Your Cart</h1>
-  <div class="flex gap-4">
+  <div class="flex gap-4 flex-column md:flex-row">
     <div id="cart-items" class="flex-grow-1 flex gap-3 flex-column">
       <app-cart-item
-        (updateCartEvent)="updateCart()"
+        (updateCartEvent)="updateCart($event)"
         *ngFor="let product of items"
         [product]="product"
       ></app-cart-item>
+      <div class="w-full" *ngIf="items.length <= 0">
+        <h2 class="text-center">Your cart is empty :(</h2>
+      </div>
     </div>
-    <div id="cart-details" class="flex gap-3 flex-column">
+    <div
+      *ngIf="items.length > 0"
+      id="cart-details"
+      class="flex gap-3 flex-column"
+    >
       <p-card header="One-Click checkout">
         <div class="flex flex-column gap-3">
           <div>

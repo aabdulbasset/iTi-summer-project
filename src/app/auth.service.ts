@@ -11,22 +11,28 @@ export class AuthService {
   user: User | null = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user") as string)
     : null;
+  token: String|null = localStorage.getItem("token") || null
   constructor(private api: ApiService) {}
   setUser(user: User | null) {
     this.user = user;
     localStorage.setItem("user", JSON.stringify(user));
   }
+  setToken(token: String){
+    this.token = token
+    localStorage.setItem("token",token as any)
+  }
   login(email: string, password: string) {
     return new Observable((subscriber) => {
       this.api
-        .post("https://dummyjson.com/auth/login", {
-          username: email,
+        .post("/login", {
+
           email,
           password,
         })
         .subscribe(
-          (res) => {
-            this.user = res as User;
+          (res: any) => {
+            this.setUser(res.user)
+            this.setToken(res.token)
             subscriber.next(200);
           },
           (error) => {
@@ -43,7 +49,7 @@ export class AuthService {
   ) {
     return new Observable((subscriber) => {
       this.api
-        .post("https://dummyjson.com/auth/register", {
+        .post("/register", {
           username,
           email,
           password,

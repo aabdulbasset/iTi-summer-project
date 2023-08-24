@@ -6,21 +6,26 @@
     <img src="/assets/logo.png" height="40" class="mr-2 ml-3" />
   </ng-template>
   <ng-template pTemplate="end">
-    <div class="flex align-items-center">
+    <div class="flex align-items-center gap-2">
       <a routerLink="cart">
-        <p-button
-          label="Cart"
-          styleClass=" p-button-outlined"
-          icon="pi pi-shopping-cart"
-        ></p-button>
+        <p-button styleClass=" p-button-outlined">
+          <i class="pi pi-shopping-cart"></i>
+          <span class="ml-2 font-bold hidden md:block">Cart</span>
+        </p-button>
       </a>
-      <p-divider styleClass="nav-divider" layout="vertical"></p-divider>
+      <p-divider
+        styleClass="nav-divider hidden md:block"
+        layout="vertical"
+      ></p-divider>
       <p-button
-        label="{{ authState ? 'Logout' : 'Login' }}"
         styleClass=" p-button-secondary"
-        icon="{{ authState ? 'pi pi-sign-out' : 'pi pi-sign-in' }}"
         (onClick)="authState ? logout() : login()"
-      ></p-button>
+      >
+        <i class="{{ authState ? 'pi pi-sign-out' : 'pi pi-sign-in' }}"></i>
+        <span class="ml-2 font-bold hidden md:block">
+          {{ authState ? "Logout" : "Login" }}
+        </span>
+      </p-button>
     </div>
   </ng-template>
 </p-menubar>

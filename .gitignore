@@ -3,3 +3,5 @@
 /.git/
 /.angular/
 *-lock.json
+/e-commerce-backend/node_modules/
+/e-commerce-backend/.git/

@@ -1,0 +1,15 @@
+#product-description{
+    height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.trimmed-100{
+    height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#product-image{
+    object-fit: contain;
+}

@@ -1,19 +1,25 @@
-<p-card header="{{ product.name }}" [style]="{ width: '360px' }">
+<p-card [style]="{ width: '360px'}">
   <ng-template pTemplate="header">
     <a href="/{{ product.id }}">
       <img
+      id="product-image"
+        width="225"
+        height="300"
         alt="Card"
-        src="https://primefaces.org/cdn/primeng/images/usercard.png"
+        src="{{product.image}}"
+
       />
     </a>
+    <h1 class="ml-3 mt-2 trimmed-100" >{{ product.title }}</h1>
   </ng-template>
-  <p>{{ product.description }}</p>
+  <p id="product-description">{{ product.description }}</p>
   <ng-template pTemplate="footer">
     <div class="flex align-items-center gap-3">
       <p-button
         label="Add to cart"
         icon="pi pi-shopping-cart"
         styleClass="p-button-success"
+        (onClick)="addToCart(product.id)"
       ></p-button>
       <h1>{{ product.price | price }}</h1>
     </div>

@@ -1,10 +1,10 @@
 <div class="flex gap-6 lg:flex-row flex-column">
   <div class="flex-1">
-    <img [src]="product.image" width="100%" alt="product.name" />
+    <img [src]="product.image" width="900px" height="700px" style="object-fit: contain" alt="product.name" />
   </div>
   <div class="flex-1 gap-5 flex justify-content-center flex-column">
     <div>
-      <h2>{{ product.name }}</h2>
+      <h2>{{ product.title }}</h2>
       <p>{{ product.price | currency }}</p>
     </div>
     <p-divider></p-divider>
